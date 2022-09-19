@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/styles.css" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <script>
+        let dir; //guarda la dirección de imagen
+        
+        document.addEventListener("DOMContentLoaded", function(){
+            document.getElementById('body').setAttribute('background', 'img/default'+Math.floor(Math.random() * 3)+'.jpg');
+
+            $('#apreciar').hover(function(){
+                dir = $('#imagen').attr('src');
+                $('#imagen').attr('src', 'img/hypno.gif');
+                $('#poke_dex').stop().fadeOut('slow');
+                
+            }, function(){
+                $('#imagen').attr('src', dir);
+                $('#poke_dex').stop().fadeIn('slow');
+            });
+        })
+
+        function handle(e){
+            if(e.keyCode === 13){ 
+                e.preventDefault();
+                formu();
+            } 
+        } 
+        function formu() {
+            $('.text-feature').next().html('');
+            $('.feature').next().html('');
+            $('#result').html('');
+            var poke_name = document.getElementById('pokemon').value;
+                    
+            if(poke_name == ""){
+                document.getElementById('imagen').setAttribute('src', 'img/giphy.gif');
+                setTimeout(function(){
+                    document.getElementById('imagen').setAttribute('src', 'img/OHJG.gif');
+                    document.getElementById('result').innerHTML = "";
+                }, 2000)
+                document.getElementById('result').innerHTML = "¡Ingrese un pokemón!"
+                return;
+            }
+
+            $.ajax({
+                url : 'https://pokeapi.co/api/v2/pokemon/' + poke_name,
+                dataType : 'json',
+                        
+                success: function(data){
+                    console.log(data);
+                    document.getElementById('name').innerHTML = data["forms"][0]["name"];
+                    document.getElementById('imagen').setAttribute('src', data["sprites"]["other"]["home"]["front_default"]);
+                        
+                    for(i=0 ; i<5 ; i++){
+                        var mayor = data["stats"][i];
+                        document.getElementById(mayor['stat']['name']).innerHTML = mayor['base_stat'];
+                    }
+
+                    for(i=0 ; i<data["types"].length ; i++){
+                        document.getElementById('type').innerHTML += data["types"][i]["type"]["name"] + '&nbsp;';
+                    
+                        let tipo = data["types"][i]["type"]["name"];
+                        if(i==0){
+                            $('#body').attr('background', 'img/'+tipo+'-type'+Math.floor(Math.random() * 3)+'.jpg');
+                        }
+                        
+                    }
+                },
+
+                error: function(){
+                    document.getElementById('imagen').setAttribute('src', 'img/not-pok.gif');
+                    document.getElementById('result').innerHTML = '¡eso no es un pokemon!';
+                }
+            });
+        }
+        </script>
+        <title>Document</title>
+    </head>
+    <body id="body" background="">
+        <form action="" class="form">
+            <input type="text" id="pokemon" placeholder="ingrese pokemon" class="input_p" onkeypress="handle(event);">
+            <input type="button" value="buscar" name="form" onclick="formu();">
+        </form>
+        <div class="container" id="poke_dex">
+            <div class="panel">
+                <div class="img_p">
+                    <img src="img/OHJG.gif" id="imagen"></img>
+                </div>
+            </div>
+            <div class="container-features" id="features">
+                <div class="cont">
+                    <p class="text-feature">Health:</p>
+                    <p id="hp"></p>
+                    <p class="text-feature" >Attack:</p>
+                    <p id="attack"></p>
+                </div>
+                <div class="cont">
+                    <p class="text-feature">S-Att:</p>
+                    <p id="special-attack"></p>
+                    <p class="text-feature" >Defense:</p>
+                    <p id="defense"></p>
+                </div>
+                <div class="cont">
+                    <p class="text-feature" >S-Def:</p>
+                    <p id="special-defense"></p>
+                </div>
+            </div>
+            <div class="container-type">
+                <p class="feature">Type:&nbsp;</p>
+                <p id="type"></p>
+                <p class="feature">Name:&nbsp;</p>
+                <p id="name"></p>
+            </div>
+            <div id="result"></div>
+        </div>
+        <img src="img/invisible.png" id="apreciar" class="apreciar">
+    </body>
+</html>
