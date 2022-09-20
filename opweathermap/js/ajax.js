@@ -54,15 +54,15 @@ function weatherdata(){
 
             for(j=0; j<arreglo.length; j++){
                 if(arreglo[j][0] == max_temp){
-                    max_day = new Date(arreglo[j][1]).getDay();        
+                    max_day = `${day[new Date(arreglo[j][1]).getDay()]} (${new Date(arreglo[j][1]).getHours()}h)`;
                 }
                 else if(arreglo[j][0] == min_temp){
-                    min_day = new Date(arreglo[j][1]).getDay();
+                    min_day = `${day[new Date(arreglo[j][1]).getDay()]} (${new Date(arreglo[j][1]).getHours()}h)`;
                 }
             }
             
-            $('#hottest').html('En el dia '+day[max_day]+' se registró la temperatura más alta: '+max_temp);
-            $('#coldest').html('En el dia '+day[min_day]+' se registró la temperatura más baja: '+min_temp);
+            $('#hottest').html('En el dia '+max_day+' se registró la temperatura más alta: '+max_temp);
+            $('#coldest').html('En el dia '+min_day+' se registró la temperatura más baja: '+min_temp);
             
             /*
             for(k=0; k<arreglo.length; k++){
