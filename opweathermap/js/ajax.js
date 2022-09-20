@@ -3,7 +3,7 @@ function weatherdata(){
     let altitud = document.getElementById("input-2").value;
 
     const arreglo = [];
-    const max_temp = [];
+    const temp = [];
     /*const daily = [];*/
     const day = [];
         day[0] = 'Domingo';
@@ -35,7 +35,7 @@ function weatherdata(){
             for(i=0; i<datos['list'].length; i++){
                 dia = new Date(datos['list'][i]['dt_txt']).getDay();
                 arreglo[i] = [datos['list'][i]['main']['temp_max'], datos['list'][i]['dt_txt'], datos['list'][i]['weather'][0]['main']];
-                max_temp[i] = +datos['list'][i]['main']['temp_max'];
+                temp[i] = datos['list'][i]['main']['temp_max'];
 
                 if(dia == new Date().getDay()){
                     document.getElementById('result_d').innerHTML += 'Hoy a las '+new Date(arreglo[i][1]).getHours()+' horas habrá una temperatura máxima de '+arreglo[i][0]+' grados '+clima[arreglo[i][2]]+'<br>';
@@ -44,9 +44,21 @@ function weatherdata(){
                     document.getElementById('result_w').innerHTML += 'El día '+day[new Date(arreglo[i][1]).getDay()]+' a las '+new Date(arreglo[i][1]).getHours()+' horas habrá una temperatura de '+arreglo[i][0]+' grados '+clima[arreglo[i][2]]+'<br>';
                 }
             }
+            console.log(arreglo);
+            max_temp = Math.max(...temp);
+            min_temp = Math.min(...temp);
+
+            for(j=0; j<arreglo.length; j++){
+                if(arreglo[j][0] == max_temp){
+                    max_day = new Date(arreglo[j][1]).getDay();        
+                }
+                else if(arreglo[j][0] == min_temp){
+                    min_day = new Date(arreglo[j][1]).getDay();
+                }
+            }
             
-            $('#hottest').html('La temperatura más alta registrada es de '+Math.max(...max_temp)+' grados');
-            $('#coldest').html('La temperatura más baja registrada es de '+Math.min(...max_temp)+' grados');
+            $('#hottest').html('En el dia '+day[max_day]+' se registró la temperatura más alta: '+max_temp);
+            $('#coldest').html('En el dia '+day[min_day]+' se registró la temperatura más baja: '+min_temp);
             
             /*
             for(k=0; k<arreglo.length; k++){
@@ -79,8 +91,8 @@ function weatherdata(){
             */
         },
 
-        error: function(result){
-            alert(result);
+        error: function(){
+            alert('No se encontro ubicacion geografica');
         }
     });
 }
