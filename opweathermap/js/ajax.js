@@ -2,6 +2,7 @@ function weatherdata(){
     let latitud = document.getElementById("input-1").value;
     let altitud = document.getElementById("input-2").value;
 
+
     const arreglo = [];
     const temp = [];
     /*const daily = [];*/
@@ -18,6 +19,7 @@ function weatherdata(){
         clima['Clouds'] = ' con un clima nublado';
         clima['Rain'] = ' con un clima lluvioso';
         clima['Clear'] = ' con un cielo despejado';
+        clima['Snow'] = ' con un clima frio';
 
     /*for(i=0; i<7; i++){
         daily[i] = Array('start');
@@ -27,10 +29,12 @@ function weatherdata(){
         dataType: 'json',
 
         success: function(datos){
-
+            console.log(datos);
             $('#place').html('El pronostico de '+datos['city']['name']+'&nbsp('+datos['city']['country']+')');
             $('#daily').html('Pronostico del el dia de hoy ('+day[new Date().getDay()]+')');
             $('#weekly').html('Pronostico de los dias próximos');
+
+            $('p').html('');
 
             for(i=0; i<datos['list'].length; i++){
                 dia = new Date(datos['list'][i]['dt_txt']).getDay();
