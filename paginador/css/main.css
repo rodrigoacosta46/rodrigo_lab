@@ -1,0 +1,31 @@
+#container{
+    display: flex;
+    width: 80vw;
+    height: 40vh;
+    background-color: coral;
+    border-radius: 5px;
+    border: outset 1px red;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.column div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 16%;
+    border-bottom: outset 1px red;
+    color: red;
+}
+
+.pages{
+    display: flex;
+}
+
+.pages button{
+    padding: 5px;
+}
