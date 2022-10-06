@@ -1,6 +1,6 @@
 function page(num){    
     $.ajax({
-        url: "model.php?page="+num,
+        url: "models/model.php?page="+num,
         dataType: 'JSON',
         
         success: function(res){
@@ -45,3 +45,32 @@ function change(num,last){
         $('.pages').prepend('<button onclick=change('+back+','+last+')>...</button>');
     }
 }
+
+function insert(){
+    $.ajax({
+        url: 'models/insert.php',
+
+        success: function(){
+            $('.correct').fadeIn('fast');
+            setTimeout(function(){
+                $('.correct').fadeOut('slow');
+            },1000);
+        },
+
+        error: function(){
+            $('.false').fadeIn('fast');
+            setTimeout(function(){
+                $('.false').fadeOut('slow');
+            },1000)
+        }
+    })
+}
+
+// efectos jquery test//
+$(document).ready(function(){
+    $('.pages button').hover(function(){
+        $(this).stop().slideUp('fast');
+    }, function(){
+        $(this).slideDown('fast');
+    });
+})

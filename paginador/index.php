@@ -23,6 +23,8 @@
         </div>
     </div>
     <div class="pages"></div>
-    <div class="add">Añadir Registro</div>
+    <button class="add" onclick="insert()">Insertar Registro</button>
+    <div class="correct" style="display: none">Se insertó nuevo registro</div>
+    <div class="false" style="display: none">Hubo un error</div>
 </body>
 </html>
