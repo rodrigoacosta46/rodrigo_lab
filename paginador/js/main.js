@@ -15,24 +15,33 @@ function page(num){
                 $('#c3').append('<div>'+res[i][3]+'</div>');
             }
     
-            if(num == 1 || (num-1)%10==0){
-                $('.pages').html('');
-            
-                for(j=1; j<12; j++){
-                    $('.pages').append('<button onclick="page('+res[6][j]+')">'+res[6][j]+'</button>');
-                    
-                    if(j > res[7]){
-                        where = res[6][1]-4;
-                        $('.pages').prepend('<button onclick="page('+where+')">...</button>');
-                        break;
-                    }
-                }
+            if(num==1){change(1,res[6])}
 
-            }
         },
 
         error: function(res){
             console.log(res);
         }
     });
+}
+
+function change(num,last){
+    
+    $('.pages').html('');
+    for(j=num; j<num+10; j++){
+        $('.pages').append('<button onclick="page('+j+')">'+j+'</button>');
+        
+        if(j==last){
+            let lback = num-10;
+            $('.pages').prepend('<button onclick=change('+lback+','+last+')>...</button>');
+            return;
+        }
+    }
+    let to = num+10;
+    $('.pages').append('<button onclick=change('+to+','+last+')>...</button>');
+
+    if(num != 1){
+        let back = num-10;
+        $('.pages').prepend('<button onclick=change('+back+','+last+')>...</button>');
+    }
 }

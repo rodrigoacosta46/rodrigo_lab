@@ -23,13 +23,7 @@
 
     $total = ceil($total / REGISA);
 
-    $k = 0;
-    for($i=$data; $i<$total+1; $i++){
-        $k++;
-        $res[6][$k] = $i;
-    }
-
-    $res[7] = $total - $data;
+    $res[6] = $total;
 
     echo json_encode($res);
 ?>

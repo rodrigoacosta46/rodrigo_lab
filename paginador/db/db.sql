@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-09-2022 a las 19:04:26
+-- Tiempo de generación: 06-10-2022 a las 08:47:33
 -- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Versión de PHP: 8.0.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `base_foromilitar`
+-- Base de datos: `db`
 --
 
 -- --------------------------------------------------------
@@ -583,7 +583,7 @@ ALTER TABLE `provincias`
 -- AUTO_INCREMENT de la tabla `rangos`
 --
 ALTER TABLE `rangos`
-  MODIFY `id_rango` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id_rango` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=262;
 
 --
 -- AUTO_INCREMENT de la tabla `register`

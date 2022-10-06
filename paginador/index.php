@@ -22,7 +22,7 @@
             <div>Cargo</div>
         </div>
     </div>
-    <div class="pages" id="pages"></div>
+    <div class="pages"></div>
     <div class="add">Añadir Registro</div>
 </body>
 </html>
