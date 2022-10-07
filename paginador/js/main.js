@@ -1,10 +1,17 @@
-function page(num){    
+function page(num){
     $.ajax({
         url: "models/model.php?page="+num,
         dataType: 'JSON',
         
         success: function(res){
             console.log(res);
+            let width = parseInt($('.progressBar').css('width')) / res[6];
+            let Wpercent = (width*100) / parseInt($('.progressBar').css('width'));
+            let value = Wpercent * num;
+            console.log(value);
+
+            $('.progress').animate({width: value+'%'});
+
             $('#c1').html('<div>Rango</div>');
             $('#c2').html('<div>Division</div>');
             $('#c3').html('<div>Cargo</div>');
@@ -15,7 +22,9 @@ function page(num){
                 $('#c3').append('<div>'+res[i][3]+'</div>');
             }
     
-            if(num==1){change(1,res[6])}
+            if(num==1){    
+                change(1,res[6])
+            }
 
         },
 

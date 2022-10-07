@@ -11,6 +11,9 @@
 </head>
 <body>
 <script>page(1)</script>
+    <div class="progressBar">
+        <div class="progress"></div>
+    </div>
     <div id="container">
         <div class="column" id="c1">
             <div>Rango</div>

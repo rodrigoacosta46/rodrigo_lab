@@ -1,0 +1,11 @@
+C:\Users\Rodrigo Acosta\Desktop\chapela-2023\Tarea005\Tarea005\bin\Debug\Tarea005.exe.config
+C:\Users\Rodrigo Acosta\Desktop\chapela-2023\Tarea005\Tarea005\bin\Debug\Tarea005.exe
+C:\Users\Rodrigo Acosta\Desktop\chapela-2023\Tarea005\Tarea005\bin\Debug\Tarea005.pdb
+C:\Users\Rodrigo Acosta\Desktop\chapela-2023\Tarea005\Tarea005\obj\Debug\Tarea005.csproj.AssemblyReference.cache
+C:\Users\Rodrigo Acosta\Desktop\chapela-2023\Tarea005\Tarea005\obj\Debug\Tarea005.Properties.Resources.resources
+C:\Users\Rodrigo Acosta\Desktop\chapela-2023\Tarea005\Tarea005\obj\Debug\Tarea005.csproj.GenerateResource.cache
+C:\Users\Rodrigo Acosta\Desktop\chapela-2023\Tarea005\Tarea005\obj\Debug\Tarea005.csproj.CoreCompileInputs.cache
+C:\Users\Rodrigo Acosta\Desktop\chapela-2023\Tarea005\Tarea005\obj\Debug\Tarea005.exe
+C:\Users\Rodrigo Acosta\Desktop\chapela-2023\Tarea005\Tarea005\obj\Debug\Tarea005.pdb
+C:\Users\Rodrigo Acosta\Desktop\chapela-2023\Tarea005\Tarea005\obj\Debug\Tarea005.BaseForm.resources
+C:\Users\Rodrigo Acosta\Desktop\chapela-2023\Tarea005\Tarea005\obj\Debug\Tarea005.NewQuestion.resources
