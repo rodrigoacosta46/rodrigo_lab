@@ -9,7 +9,7 @@ body{
     background-color: coral;
     border-radius: 5px;
     border: outset 1px red;
-    margin: 20vh auto 0px;
+    margin: 20px auto 0px;
 }
 
 .column{
@@ -74,4 +74,19 @@ body{
     padding: 5px;
     text-align: center;
     background-color: red;
+}
+
+.progressBar{
+    display: flex;
+    margin: 15vh auto 0px;
+    width: 80%;
+    height: 2vh;
+    background-color: wheat;
+    border-radius: 50px;
+}
+
+.progress{
+    height: 100%;
+    background-color: rgb(94, 151, 7);
+    border-radius: 50px;
 }
