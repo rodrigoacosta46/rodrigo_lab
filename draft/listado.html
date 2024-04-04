@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script defer src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>Listado</title>
+</head>
+<body class="bg-dark" style="overflow-x: hidden;">
+
+    <!-- BARRA DE NAVEGACIÓN -->
+
+    <nav class="navbar navbar-expand-sm text-center position-relative" style="font-family: Comfortaa; background-color: #5C059E; ">
+        <div class="container-fluid">
+            <div class="navbar-brand text-light text-wrap">Et26 "Confederación Suiza"</div>
+            <ul class="navbar-nav me-auto d-none d-lg-flex">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Listado</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Page</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Page</a>
+                </li>
+            </ul>
+
+            <div class="dropdown me-auto d-lg-none">
+                <a class="btn btn-dark dropdown-toggle" 
+                    href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" 
+                    aria-haspopup="true" aria-expanded="false">&#9776;</a>
+              
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="#">Listado</a>
+                  <a class="dropdown-item" href="#">Page</a>
+                  <a class="dropdown-item" href="#">Page</a>
+                </div>
+            </div>
+            
+            <a href="#" data-toggle="modal" data-target="#userModal" role="button" class="flex-end">
+                <img src="img/profile.png" alt="IMAGE" class="rounded-circle" width="32" height="32">
+            </a>
+
+            <a href="#" class="btn btn-secondary rounded-pill flex-end">
+                Login
+            </a>
+        </div>
+    </nav>
+
+    <!-- PAGINA DE LISTADO -->
+
+    <div class="container position-relative">
+
+        <!--    BUSCADOR    -->
+        <div class="input-group my-5">
+            <button onclick="addTag();" class="btn btn-light">&#128269;</button>
+            <input type="text" name="seach" id="search" class="form-control" placeholder="Buscar...">
+        </div>
+
+        <!--    ETIQUETAS   -->
+        <div class="container-fluid bg-light p-1 rounded-5 mb-5" id="tagSet">
+            <span class="fs-5 fw-light" id="tagPh">Etiquetas...</span>
+        </div>
+
+        <!--  EXAMENES   -->
+        <div class="d-flex flex-row justify-content-center flex-wrap align-items-stretch">
+            <a href="#" class="card text-decoration-none m-2" style="width: 250px;">
+                <img src="img/preview.png" class="card-img-top" alt="IMAGE">
+                <div class="card-body overflow-hidden" style="max-height: 200px;">
+                    <div class="d-flex flex-wrap">
+                        <img src="img/profile.png" alt="IMAGE" class="rounded-circle" width="24" height="24">
+                        <small class="text-muted ms-auto">Hace 2 meses</small>
+                    </div>
+                    <p class="text-dark text-break text-underlined text-decoration-underline p-1"> a lore loremt.</p>
+                </div>
+            </a>   <a href="#" class="card text-decoration-none m-2" style="width: 250px;">
+                <img src="img/preview.png" class="card-img-top" alt="IMAGE">
+                <div class="card-body overflow-hidden" style="max-height: 200px;">
+                    <div class="d-flex flex-wrap">
+                        <img src="img/profile.png" alt="IMAGE" class="rounded-circle" width="24" height="24">
+                        <small class="text-muted ms-auto">Hace 2 meses</small>
+                    </div>
+                    <p class="text-dark text-break text-underlined text-decoration-underline p-1"> a Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis dicta dolore illum ipsa quidem. Mollitia possimus veniam sit illum tenetur soluta consectetur sed aliquid pariatur necessitatibus, nobis voluptates quaerat non!loremloret.</p>
+                </div>
+            </a> 
+        </div>
+    </div>
+
+    <!--  FOOTER   -->
+    <footer class="footer container-fluid mt-2" style="background-color: #5C059E;">
+        <div class="lead text-muted text-center p-1">Copyright ©  | Escuela Técnica 26 | Jujuy 255 | CABA</div>  
+    </footer>
+
+    <script>
+        /*
+        class Tag {
+            constructor(a, b, c){
+                this.suma = a+b+c;
+            }
+        }
+
+        objTag = new Tag(1,2,3);
+        console.log(objTag.suma);
+        */
+
+        function openTab(){
+            
+        }
+
+        function addTag(){   
+            let placeHolder = tagger.querySelector("span");
+            let textInput = document.getElementById("search");
+
+            if(textInput.value == "")
+                return;
+
+            placeHolder.hidden = true;
+
+            if(tagger.childElementCount < tagLimit)
+                tagger.innerHTML += '<button onclick="deleteTag(this)" class="searchTag btn btn-dark m-2 rounded-pill">' + textInput.value + '</button>';    
+        
+            textInput.value = "";
+        }
+        
+        function deleteTag(tag){
+            tag.remove();
+
+            if(tagger.childElementCount == 1)
+                tagger.querySelector("span").hidden = false;
+            console.log(tagger.querySelectorAll("button"))
+        }
+
+        const tagger = document.getElementById("tagSet");
+        const search = document.getElementById("search");
+        const tagLimit = 11;
+        search.addEventListener("keyup", e => e.keyCode == 13 && addTag());
+        
+    </script>
+</body>
+</html>

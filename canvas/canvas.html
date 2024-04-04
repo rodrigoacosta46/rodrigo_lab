@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="margin: 0px; padding: 0px; background-color:bisque;">
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh">
+        <canvas width="600" height="400" style="background-color: white;" id="canvas">No soportás el canvas</canvas>
+    </div>
+    <img src="../img/output-onlinepngtools.png" alt="" id="spritesheet" hidden>
+    
+    <script>
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+        const godzillaSprite = document.getElementById("spritesheet");
+        
+        godzillaSprite.onload = function(){
+            ctx.drawImage(godzillaSprite, 6, 12, 71, 63, 0, 0, 71, 63);
+        }
+        
+        /* MARGEN ENTRE IMAGENES PRIMERA FILA: 8
+        let posX = 50;
+        let posY = 350;
+        
+        circle.fillStyle = "blue";
+
+        newPos(0, 0);
+
+        function keyPressed(e){
+            let key = e.keyCode;
+            //console.log(key);
+            switch(key){
+                case 39:
+                    newPos(5, 0);
+                    break;
+                case 37:
+                    newPos(-5, 0);
+                    break;
+                case 40:
+                    newPos(0, 5);
+                    break;
+                case 38:
+                    newPos(0, -5);
+                    break;
+            }
+        }
+
+        function newPos(x,y){
+        
+            if(end()){
+                circle.clearRect(0, 0, canvas.width, canvas.height);
+                posX += x;
+                posY += y;
+                circle.beginPath();
+                circle.arc(posX,posY,25,0,Math.PI*2);
+                circle.closePath();
+                circle.fill();
+            }   
+        }
+
+        function end(){
+            if(posY == 375 || posY == 25 || posX == 25 || posX == 575){
+                return false;
+            }
+            console.log(posX, posY);
+            return true;
+        }
+        //circle.lineWidth = 15;
+        //circle.strokeStyle = "red";
+       
+        window.addEventListener('keydown',keyPressed);
+        */
+    </script>
+</body>
+</html>
